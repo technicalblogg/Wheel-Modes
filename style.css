@@ -1,0 +1,257 @@
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Changed from #f0f4f8 to white */
+            color: #334155; /* Darker text */
+        }
+        .impact-bar {
+            height: 8px;
+            border-radius: 9999px; /* Full rounded corners */
+            background-color: #e2e8f0; /* Light gray for empty part */
+            overflow: hidden;
+            margin-top: 0.25rem;
+        }
+        .impact-fill {
+            height: 100%;
+            border-radius: 9999px;
+        }
+        /* Existing impact-fill classes */
+        .impact-fill.minor { background-color: #93c5fd; width: 25%; } /* Light blue */
+        .impact-fill.moderate { background-color: #3b82f6; width: 50%; } /* Blue */
+        .impact-fill.significant { background-color: #2563eb; width: 75%; } /* Darker blue */
+        .impact-fill.major { background-color: #1d4ed8; width: 100%; } /* Even darker blue */
+        .impact-fill.very-minor { background-color: #bfdbfe; width: 12.5%; } /* Very light blue */
+
+        /* Added impact-fill classes to match matrix-impact-fill for consistency */
+        .impact-fill.low { background-color: #93c5fd; width: 25%; }
+        .impact-fill.medium { background-color: #3b82f6; width: 50%; }
+        .impact-fill.high { background-color: #2563eb; width: 75%; }
+        .impact-fill.very-high { background-color: #1d4ed8; width: 100%; }
+        .impact-fill.none { background-color: transparent; width: 0%; }
+
+
+        /* Custom styles for better visual representation */
+        .card {
+            background-color: #ffffff;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s ease-in-out;
+            position: relative; /* For the dominance tag */
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+        .mode-title {
+            font-size: 1.75rem; /* Larger title */
+            font-weight: 700; /* Bold */
+            color: #1e3a8a; /* Darker blue */
+            margin-bottom: 0.75rem;
+        }
+        .impact-label {
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+        .component-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+        }
+        .tag-tyre {
+            background-color: #10b981; /* Green */
+        }
+        .tag-rim-brake {
+            background-color: #ef4444; /* Red */
+        }
+        .section-heading {
+            font-size: 2.25rem; /* Larger section heading */
+            font-weight: 800; /* Extra bold */
+            color: #1f2937; /* Very dark gray */
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Tab styles */
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            background-color: #e2e8f0;
+            color: #475569;
+            margin: 0 0.5rem;
+        }
+        .tab-button.active {
+            background-color: #3b82f6;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Comparison specific styles */
+        .horizontal-chart-container {
+            position: relative;
+            height: 450px; /* Increased height for better spacing */
+            width: 100%;
+            background-color: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; /* Distribute items evenly */
+            padding-left: 120px; /* Increased space for Y-axis labels */
+            padding-bottom: 60px; /* Increased space for X-axis labels */
+        }
+
+        .chart-row {
+            position: relative;
+            width: 100%;
+            height: 45px; /* Increased height for each bar row */
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px; /* Adjusted spacing between rows */
+        }
+
+        .y-axis-label {
+            position: absolute;
+            left: -110px; /* Adjusted position to the left of the chart area */
+            width: 100px; /* Increased width for labels */
+            text-align: right;
+            font-size: 0.9rem; /* Slightly larger font */
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .horizontal-bar-track {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 25px; /* Height of the track */
+            background-color: #e2e8f0; /* Light gray track */
+            border-radius: 0.25rem;
+            overflow: hidden;
+        }
+
+        .horizontal-bar {
+            height: 100%;
+            border-radius: 0.25rem;
+            position: absolute;
+            left: 0; /* Will be set by JS */
+            width: 0; /* Will be set by JS, animated */
+            transition: width 1s ease-out; /* Animation for width */
+        }
+
+        .horizontal-bar.tyre-dominant { background-color: #34d399; } /* Green */
+        .horizontal-bar.rim-brake-dominant { background-color: #f87171; } /* Red */
+
+        .freq-range-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.75rem; /* Adjusted font size */
+            color: white; /* Text color on bars */
+            font-weight: 600;
+            white-space: nowrap; /* Ensure single line */
+            text-shadow: 0 0 2px rgba(0,0,0,0.5);
+        }
+
+        .x-axis-labels {
+            position: absolute;
+            bottom: 10px; /* Position below the chart area */
+            left: 120px; /* Align with chart's start */
+            right: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem; /* Slightly larger font */
+            color: #64748b;
+        }
+
+        .vertical-grid-line {
+            position: absolute;
+            top: 0;
+            bottom: 60px; /* Stop before x-axis labels */
+            width: 1px;
+            background-color: #cbd5e1; /* Light gray line */
+            z-index: 0;
+        }
+
+        .comparison-table-summary table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        .comparison-table-summary th, .comparison-table-summary td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+        .comparison-table-summary th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+        }
+        .comparison-table-summary td {
+            background-color: #ffffff;
+            color: #334155;
+        }
+
+        .performance-matrix table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        .performance-matrix th, .performance-matrix td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+            font-size: 0.9rem;
+            /* Evenly distribute columns */
+            width: calc(100% / 5); /* 1 for mode, 4 for impacts */
+        }
+        .performance-matrix th:first-child,
+        .performance-matrix td:first-child {
+            width: calc(100% / 5); /* Adjust width for the "MODE" column if needed */
+        }
+        .performance-matrix th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+        }
+        .performance-matrix td {
+            background-color: #ffffff;
+            color: #334155;
+        }
+        .matrix-impact-bar {
+            height: 6px;
+            border-radius: 9999px;
+            background-color: #e2e8f0;
+            overflow: hidden;
+            width: 100%;
+        }
+        .matrix-impact-fill {
+            height: 100%;
+            border-radius: 9999px;
+        }
+        .matrix-impact-fill.low { background-color: #93c5fd; width: 25%; }
+        .matrix-impact-fill.medium { background-color: #3b82f6; width: 50%; }
+        .matrix-impact-fill.high { background-color: #2563eb; width: 75%; }
+        .matrix-impact-fill.very-high { background-color: #1d4ed8; width: 100%; }
+        .matrix-impact-fill.none { background-color: transparent; width: 0%; }
