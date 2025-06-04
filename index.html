@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Wheel & Tyre Natural Frequency Modes: Tyre vs. Rim/Brake Dominance</title>
+    <title>Wheel Natural Frequency Modes: Tyre vs. Rim/Brake Dominance</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -77,6 +77,9 @@
         }
         .tag-rim-brake {
             background-color: #ef4444; /* Red */
+        }
+        .tag-bare-rim { /* New class for Bare Rim */
+            background-color: #8B5CF6; /* Purple */
         }
         .section-heading {
             font-size: 2.25rem; /* Larger section heading */
@@ -200,23 +203,24 @@
             z-index: 0;
         }
 
-        .comparison-table-summary table {
+        .comparison-table-summary table, .wheel-modes-table table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 1.5rem;
         }
-        .comparison-table-summary th, .comparison-table-summary td {
+        .comparison-table-summary th, .comparison-table-summary td,
+        .wheel-modes-table th, .wheel-modes-table td {
             border: 1px solid #e2e8f0;
             padding: 0.75rem;
             text-align: left;
             font-size: 0.9rem;
         }
-        .comparison-table-summary th {
+        .comparison-table-summary th, .wheel-modes-table th {
             background-color: #f8fafc;
             font-weight: 600;
             color: #475569;
         }
-        .comparison-table-summary td {
+        .comparison-table-summary td, .wheel-modes-table td {
             background-color: #ffffff;
             color: #334155;
         }
@@ -268,7 +272,7 @@
 <body class="p-6 md:p-10 lg:p-12">
     <div class="max-w-6xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-10">
-            Wheel and Tyre Natural Frequency Modes
+            Wheel Natural Frequency Modes
         </h1>
         <p class="text-lg text-center text-gray-600 mb-12">
             Understanding how different components of the wheel assembly influence vehicle dynamics.
@@ -277,6 +281,7 @@
         <div class="flex justify-center mb-8">
             <button class="tab-button" data-tab="tyre-modes-data">Tyre-Dominant Modes</button>
             <button class="tab-button" data-tab="rim-brake-modes-data">Rim/Brake-Dominant Modes</button>
+            <button class="tab-button" data-tab="wheel-dominant-modes-data">Wheel Rim Dominant Modes (Bare Rim)</button>
             <button class="tab-button" data-tab="comparison">Comparison</button>
         </div>
 
@@ -519,6 +524,280 @@
             </div>
         </div>
 
+        <div id="wheel-dominant-modes-data" class="tab-content">
+            <h2 class="section-heading">Wheel Rim Dominant Modes (Bare Rim)</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+                A comprehensive breakdown of modal modes 1-10 and their specific impacts on the **bare wheel rim's** performance characteristics. These modes are typically observed at higher frequencies due to the rim's inherent stiffness without the damping effect of the tire.
+            </p>
+
+            <!-- Mode 1 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 1: 50-150 Hz</div>
+                    <p class="text-gray-700 mb-4">Low-frequency vibrations can cause discomfort at low speeds.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: Low</div>
+                        <div class="impact-bar"><div class="impact-fill low"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Low-frequency vibrations can cause discomfort at low speeds.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Very Minor</div>
+                        <div class="impact-bar"><div class="impact-fill very-minor"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Minimal effect on steering.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Low</div>
+                        <div class="impact-bar"><div class="impact-fill low"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Slight influence on stability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 2 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 2: 150-300 Hz</div>
+                    <p class="text-gray-700 mb-4">Can amplify road-induced vibrations.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: Low</div>
+                        <div class="impact-bar"><div class="impact-fill low"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can amplify road-induced vibrations.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Minor</div>
+                        <div class="impact-bar"><div class="impact-fill minor"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Minor impact on steering feel.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Low</div>
+                        <div class="impact-bar"><div class="impact-fill low"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can affect grip on uneven surfaces.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 3 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 3: 300-450 Hz</div>
+                    <p class="text-gray-700 mb-4">Moderate influence on ride comfort.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Moderate influence on ride comfort.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can introduce slight steering oscillations.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Impacts cornering stability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 4 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 4: 450-600 Hz</div>
+                    <p class="text-gray-700 mb-4">Noticeable effect on ride harshness.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: Significant</div>
+                        <div class="impact-bar"><div class="impact-fill significant"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Noticeable effect on ride harshness.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Minor</div>
+                        <div class="impact-bar"><div class="impact-fill minor"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can cause minor steering vibrations.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Significant</div>
+                        <div class="impact-bar"><div class="impact-fill significant"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Affects high-speed stability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 5 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 5: 600-750 Hz</div>
+                    <p class="text-gray-700 mb-4">Can contribute to road noise and harshness.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: Significant</div>
+                        <div class="impact-bar"><div class="impact-fill significant"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can contribute to road noise and harshness.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">May introduce steering feedback issues.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Significant</div>
+                        <div class="impact-bar"><div class="impact-fill significant"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Impacts vehicle response to sudden maneuvers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 6 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 6: 750-900 Hz</div>
+                    <p class="text-gray-700 mb-4">Increased vibration transmission to chassis.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: High</div>
+                        <div class="impact-bar"><div class="impact-fill high"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Increased vibration transmission to chassis.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can affect steering precision.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Influences suspension tuning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 7 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 7: 900-1050 Hz</div>
+                    <p class="text-gray-700 mb-4">Can cause resonance effects at certain speeds.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: High</div>
+                        <div class="impact-bar"><div class="impact-fill high"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can cause resonance effects at certain speeds.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Significant</div>
+                        <div class="impact-bar"><div class="impact-fill significant"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Noticeable steering feedback changes.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Significant</div>
+                        <div class="impact-bar"><div class="impact-fill significant"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Affects dynamic handling characteristics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 8 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 8: 1050-1200 Hz</div>
+                    <p class="text-gray-700 mb-4">High-frequency vibrations impact ride quality.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: High</div>
+                        <div class="impact-bar"><div class="impact-fill high"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">High-frequency vibrations impact ride quality.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Minor</div>
+                        <div class="impact-bar"><div class="impact-fill minor"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can introduce minor steering instability.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Influences vehicle agility.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 9 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 9: 1200-1350 Hz</div>
+                    <p class="text-gray-700 mb-4">Can contribute to structural fatigue over time.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: Medium</div>
+                        <div class="impact-bar"><div class="impact-fill medium"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can contribute to structural fatigue over time.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">May cause steering sensitivity variations.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: High</div>
+                        <div class="impact-bar"><div class="impact-fill high"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Impacts vehicle control at extreme conditions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode 10 -->
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                <div class="component-tag tag-bare-rim">Bare Rim</div>
+                <div class="md:col-span-1">
+                    <div class="mode-title">Mode 10: 1350-1500 Hz</div>
+                    <p class="text-gray-700 mb-4">Minimal effect on ride at normal speeds.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="mb-4">
+                        <div class="impact-label">Ride Impact: Very Minor</div>
+                        <div class="impact-bar"><div class="impact-fill very-minor"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Minimal effect on ride at normal speeds.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="impact-label">Steering Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Can affect steering response at high speeds.</p>
+                    </div>
+                    <div>
+                        <div class="impact-label">Handling Impact: Moderate</div>
+                        <div class="impact-bar"><div class="impact-fill moderate"></div></div>
+                        <p class="text-sm text-gray-600 mt-1">Influences overall vehicle dynamics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-gray-700 mt-6">
+                These modal modes are crucial in wheel design optimization, ensuring that vibrations do not interfere with vehicle performance. Engineers use modal analysis to refine wheel materials and structures for better ride comfort, steering accuracy, and handling stability.
+            </p>
+            <p class="text-sm text-gray-500 mt-4 italic">
+                It should be noted that the frequency ranges and impacts presented here for bare wheel rims are general guidelines. Actual modal frequencies and their effects can vary significantly based on specific wheel design, material, manufacturing processes, and the mounting conditions.
+            </p>
+        </div>
+
         <div id="comparison" class="tab-content">
             <h2 class="section-heading">Frequency Mode Comparison</h2>
             <p class="text-lg text-center text-gray-600 mb-8">
@@ -691,10 +970,6 @@
                 </table>
             </div>
         </div>
-
-        <p class="text-center text-gray-600 mt-12 text-sm">
-            
-        </p>
     </div>
 
     <script>
@@ -753,6 +1028,7 @@
                 document.getElementById(tabId).classList.add('active');
                 document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
 
+                // Only animate bars if the comparison tab is active
                 if (tabId === 'comparison') {
                     resetHorizontalBars(); // Reset before animating
                     setTimeout(updateHorizontalBars, 100); // Small delay to ensure reset takes effect
@@ -767,7 +1043,8 @@
                 });
             });
 
-            showTab('tyre-modes-data'); // Default tab
+            // Set default active tab on load
+            showTab('tyre-modes-data');
         });
     </script>
 </body>
